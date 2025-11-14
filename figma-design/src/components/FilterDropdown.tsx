@@ -39,7 +39,6 @@ const FilterDropdown = ({ isOpen, onClose, position }: FilterDropdownProps) => {
           left: `${position.left}px`,
           border: "1px solid #43434380",
           boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.15)",
-          // backdropFilter: "blur(24px)",
           fontFamily: "PingFang SC",
         }}
       >
@@ -55,7 +54,7 @@ const FilterDropdown = ({ isOpen, onClose, position }: FilterDropdownProps) => {
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             placeholder="搜索"
-            className="w-full h-[32px] bg-transparent  rounded-[8px] pl-[40px] pr-[12px] text-[12px] text-[#969696] placeholder-[#FFFFFF66] outline-none"
+            className="w-full h-[32px] bg-transparent  rounded-[8px] pl-[40px] pr-[12px] text-[12px] text-[#969696] placeholder-[#969696] outline-none"
             style={{ fontFamily: "PingFang SC" }}
           />
         </div>

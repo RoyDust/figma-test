@@ -90,8 +90,8 @@ function App() {
                           e.currentTarget.parentElement?.getBoundingClientRect();
                         if (thRect) {
                           setFilterPosition({
-                            top: thRect.bottom + 12,
-                            left: thRect.left - 8,
+                            top: thRect.bottom + 4,
+                            left: thRect.left + 12,
                           });
                         }
 
