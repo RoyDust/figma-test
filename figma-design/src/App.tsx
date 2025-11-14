@@ -38,7 +38,77 @@ function App() {
             ))}
           </div>
           {/* 表格 */}
-          <div className=" w-[572px] h-[211px] bg-[#0A0A0A] border border-[#43434380] rounded-[12px]"></div>
+          <div
+            className="w-[572px] h-[211px] bg-[#0A0A0A] border border-[#43434380] rounded-[12px] overflow-hidden"
+            style={{ fontFamily: "PingFang SC" }}
+          >
+            <table className="w-full border-collapse">
+              <thead>
+                <tr
+                  className="h-[48px] text-[#969696] font-regular"
+                  style={{ borderBottom: "0.5px solid #434343" }}
+                >
+                  <th className="w-[120px] text-[14px] font-normal px-[20px] text-left">
+                    名称
+                  </th>
+                  <th
+                    className="w-[210px] text-[14px] font-normal px-[20px] text-center"
+                    style={{ borderLeft: "0.5px solid #434343" }}
+                  >
+                    类型
+                    <img
+                      src="/images/icon_filter@2x.png"
+                      alt="filter"
+                      className="inline-block ml-1 align-middle w-[16px] h-[16px]"
+                    />
+                  </th>
+                  <th
+                    className="text-[14px] font-normal px-[20px] text-center"
+                    style={{ borderLeft: "0.5px solid #434343" }}
+                  >
+                    联系方式
+                    <img
+                      src="/images/icon_filter@2x.png"
+                      alt="filter"
+                      className="inline-block ml-1 align-middle w-[16px] h-[16px]"
+                    />
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { id: "整数001", type: "AAAA", contact: "108873889928" },
+                  { id: "整数002", type: "BBBB", contact: "108873889928" },
+                  { id: "整数003", type: "CCCC", contact: "108873889928" },
+                  { id: "整数004", type: "DDDD", contact: "108873889928" },
+                ].map((row, index) => (
+                  <tr
+                    key={index}
+                    className="h-[40px] font-regular text-[#FFFFFF] text-[14px] leading-[16px]   "
+                    style={{
+                      borderBottom: index < 3 ? "0.5px solid #434343" : "none",
+                    }}
+                  >
+                    <td className="w-[120px]    text-left px-[20px]">
+                      {row.id}
+                    </td>
+                    <td
+                      className="w-[210px]    text-center px-[20px]"
+                      style={{ borderLeft: "0.5px solid #434343" }}
+                    >
+                      {row.type}
+                    </td>
+                    <td
+                      className="  text-center px-[20px]"
+                      style={{ borderLeft: "0.5px solid #434343" }}
+                    >
+                      {row.contact}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
