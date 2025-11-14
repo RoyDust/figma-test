@@ -1,9 +1,12 @@
 import { useState } from "react";
 import clsx from "clsx";
+import FilterDropdown from "./components/FilterDropdown";
 
 function App() {
   const tabs = ["订单统计", "订单列表"];
   const [activeTab, setActiveTab] = useState(0);
+  const [filterOpen, setFilterOpen] = useState<string | null>(null);
+  const [filterPosition, setFilterPosition] = useState({ top: 0, left: 0 });
 
   return (
     <div className="min-h-screen bg-white p-8 flex justify-center items-center">
@@ -59,7 +62,15 @@ function App() {
                     <img
                       src="/images/icon_filter@2x.png"
                       alt="filter"
-                      className="inline-block ml-1 align-middle w-[16px] h-[16px]"
+                      className="inline-block ml-1 align-middle w-[16px] h-[16px] cursor-pointer"
+                      onClick={(e) => {
+                        const rect = e.currentTarget.getBoundingClientRect();
+                        setFilterPosition({
+                          top: rect.bottom + 4,
+                          left: rect.left - 100,
+                        });
+                        setFilterOpen(filterOpen === "type" ? null : "type");
+                      }}
                     />
                   </th>
                   <th
@@ -70,7 +81,15 @@ function App() {
                     <img
                       src="/images/icon_filter@2x.png"
                       alt="filter"
-                      className="inline-block ml-1 align-middle w-[16px] h-[16px]"
+                      className="inline-block ml-1 align-middle w-[16px] h-[16px] cursor-pointer"
+                      onClick={(e) => {
+                        const rect = e.currentTarget.getBoundingClientRect();
+                        setFilterPosition({
+                          top: rect.bottom + 4,
+                          left: rect.left - 100,
+                        });
+                        setFilterOpen(filterOpen === "contact" ? null : "contact");
+                      }}
                     />
                   </th>
                 </tr>
@@ -111,6 +130,12 @@ function App() {
           </div>
         </div>
       </div>
+
+      <FilterDropdown
+        isOpen={filterOpen !== null}
+        onClose={() => setFilterOpen(null)}
+        position={filterPosition}
+      />
     </div>
   );
 }
