@@ -33,7 +33,7 @@ const FilterDropdown = ({ isOpen, onClose, position }: FilterDropdownProps) => {
 
       {/* Dropdown */}
       <div
-        className="fixed z-50 w-[216px] bg-[#1A1A1A] rounded-[12px] p-[8px] flex flex-col gap-[6px]"
+        className="fixed z-50 w-[216px] bg-[#00000066] rounded-[12px] p-[8px] flex flex-col gap-[6px]"
         style={{
           top: `${position.top}px`,
           left: `${position.left}px`,
@@ -44,7 +44,7 @@ const FilterDropdown = ({ isOpen, onClose, position }: FilterDropdownProps) => {
         }}
       >
         {/* Search Input */}
-        <div className="relative w-[200px] h-[32px]  rounded-[8px] border-[0.5px] border-[#434343] flex items-center ">
+        <div className="relative w-[200px] h-[32px] bg-[#00000080]  rounded-[8px] border-[0.5px] border-[#434343] flex items-center ">
           <img
             src="/images/icon_search@2x.png"
             alt="search"
