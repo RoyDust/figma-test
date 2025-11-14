@@ -55,7 +55,7 @@ function App() {
                     名称
                   </th>
                   <th
-                    className="w-[210px] text-[14px] font-normal px-[20px] text-center"
+                    className="w-[210px] text-[14px] font-normal px-[20px] text-center relative"
                     style={{ borderLeft: "0.5px solid #434343" }}
                   >
                     类型
@@ -64,17 +64,20 @@ function App() {
                       alt="filter"
                       className="inline-block ml-1 align-middle w-[16px] h-[16px] cursor-pointer"
                       onClick={(e) => {
-                        const rect = e.currentTarget.getBoundingClientRect();
-                        setFilterPosition({
-                          top: rect.bottom + 4,
-                          left: rect.left - 100,
-                        });
+                        const thRect =
+                          e.currentTarget.parentElement?.getBoundingClientRect();
+                        if (thRect) {
+                          setFilterPosition({
+                            top: thRect.bottom + 4,
+                            left: thRect.left - 4,
+                          });
+                        }
                         setFilterOpen(filterOpen === "type" ? null : "type");
                       }}
                     />
                   </th>
                   <th
-                    className="text-[14px] font-normal px-[20px] text-center"
+                    className="text-[14px] font-normal px-[20px] text-center relative"
                     style={{ borderLeft: "0.5px solid #434343" }}
                   >
                     联系方式
@@ -83,12 +86,20 @@ function App() {
                       alt="filter"
                       className="inline-block ml-1 align-middle w-[16px] h-[16px] cursor-pointer"
                       onClick={(e) => {
-                        const rect = e.currentTarget.getBoundingClientRect();
-                        setFilterPosition({
-                          top: rect.bottom + 4,
-                          left: rect.left - 100,
-                        });
-                        setFilterOpen(filterOpen === "contact" ? null : "contact");
+                        const thRect =
+                          e.currentTarget.parentElement?.getBoundingClientRect();
+                        if (thRect) {
+                          setFilterPosition({
+                            top: thRect.bottom + 12,
+                            left: thRect.left - 8,
+                          });
+                        }
+
+                        console.log(thRect);
+
+                        setFilterOpen(
+                          filterOpen === "contact" ? null : "contact"
+                        );
                       }}
                     />
                   </th>

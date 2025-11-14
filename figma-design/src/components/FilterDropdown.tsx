@@ -33,7 +33,7 @@ const FilterDropdown = ({ isOpen, onClose, position }: FilterDropdownProps) => {
 
       {/* Dropdown */}
       <div
-        className="fixed z-50 w-[216px] bg-[#1A1A1A] rounded-[12px] p-[8px] flex flex-col gap-[12px]"
+        className="fixed z-50 w-[216px] bg-[#1A1A1A] rounded-[12px] p-[8px] flex flex-col gap-[6px]"
         style={{
           top: `${position.top}px`,
           left: `${position.left}px`,
@@ -61,7 +61,7 @@ const FilterDropdown = ({ isOpen, onClose, position }: FilterDropdownProps) => {
         </div>
 
         {/* Filter Options */}
-        <div className="flex flex-col w-[200px] gap-[8px] px-[12px]">
+        <div className="flex flex-col w-[200px] px-[12px]">
           {filteredOptions.map((option, index) => (
             <label
               key={index}
