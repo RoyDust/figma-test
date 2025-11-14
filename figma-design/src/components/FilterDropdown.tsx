@@ -4,13 +4,22 @@ interface FilterDropdownProps {
   isOpen: boolean;
   onClose: () => void;
   position: { top: number; left: number };
+  filterType: "type" | "contact" | null;
+  options: string[];
 }
 
-const FilterDropdown = ({ isOpen, onClose, position }: FilterDropdownProps) => {
+const FilterDropdown = ({ isOpen, onClose, position, filterType, options }: FilterDropdownProps) => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [searchText, setSearchText] = useState("");
 
-  const filterOptions = ["AAAA", "BBBB", "CCCC", "DDDD"];
+  const filterOptions = options;
+  
+  // 根据筛选类型设置placeholder
+  const getPlaceholder = () => {
+    if (filterType === "type") return "搜索类型";
+    if (filterType === "contact") return "搜索联系方式";
+    return "搜索";
+  };
 
   const toggleFilter = (option: string) => {
     setSelectedFilters((prev) =>
@@ -53,7 +62,7 @@ const FilterDropdown = ({ isOpen, onClose, position }: FilterDropdownProps) => {
             type="text"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
-            placeholder="搜索"
+            placeholder={getPlaceholder()}
             className="w-full h-[32px] bg-transparent  rounded-[8px] pl-[40px] pr-[12px] text-[12px] text-[#969696] placeholder-[#969696] outline-none"
             style={{ fontFamily: "PingFang SC" }}
           />

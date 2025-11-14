@@ -8,6 +8,27 @@ function App() {
   const [filterOpen, setFilterOpen] = useState<string | null>(null);
   const [filterPosition, setFilterPosition] = useState({ top: 0, left: 0 });
 
+  // 表格数据
+  const tableData = [
+    { id: "整数001", type: "AAAA", contact: "108873889928" },
+    { id: "整数002", type: "BBBB", contact: "108873889928" },
+    { id: "整数003", type: "CCCC", contact: "108873889928" },
+    { id: "整数004", type: "DDDD", contact: "108873889928" },
+  ];
+
+  // 筛选选项
+  const typeOptions = ["AAAA", "BBBB", "CCCC", "DDDD"];
+  const contactOptions = Array.from(
+    new Set(tableData.map((row) => row.contact))
+  );
+
+  // 根据当前筛选类型获取选项
+  const getCurrentFilterOptions = () => {
+    if (filterOpen === "type") return typeOptions;
+    if (filterOpen === "contact") return contactOptions;
+    return [];
+  };
+
   return (
     <div className="min-h-screen bg-white p-8 flex justify-center items-center">
       <div className="w-[736px] h-[407px] bg-[#101010] flex">
@@ -106,12 +127,7 @@ function App() {
                 </tr>
               </thead>
               <tbody>
-                {[
-                  { id: "整数001", type: "AAAA", contact: "108873889928" },
-                  { id: "整数002", type: "BBBB", contact: "108873889928" },
-                  { id: "整数003", type: "CCCC", contact: "108873889928" },
-                  { id: "整数004", type: "DDDD", contact: "108873889928" },
-                ].map((row, index) => (
+                {tableData.map((row, index) => (
                   <tr
                     key={index}
                     className="h-[40px] font-regular text-[#FFFFFF] text-[14px] leading-[16px]   "
@@ -146,6 +162,8 @@ function App() {
         isOpen={filterOpen !== null}
         onClose={() => setFilterOpen(null)}
         position={filterPosition}
+        filterType={filterOpen as "type" | "contact" | null}
+        options={getCurrentFilterOptions()}
       />
     </div>
   );
