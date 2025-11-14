@@ -33,13 +33,13 @@ const FilterDropdown = ({ isOpen, onClose, position }: FilterDropdownProps) => {
 
       {/* Dropdown */}
       <div
-        className="fixed z-50 w-[216px] bg-[#00000066] rounded-[12px] p-[8px] flex flex-col gap-[6px]"
+        className="fixed z-50 w-[216px] bg-[#00000066] rounded-[12px] p-[8px] flex flex-col gap-[6px] backdrop-blur-[10px]"
         style={{
           top: `${position.top}px`,
           left: `${position.left}px`,
           border: "1px solid #43434380",
           boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.15)",
-          backdropFilter: "blur(24px)",
+          // backdropFilter: "blur(24px)",
           fontFamily: "PingFang SC",
         }}
       >
