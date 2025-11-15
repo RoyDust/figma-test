@@ -8,12 +8,18 @@ interface FilterDropdownProps {
   options: string[];
 }
 
-const FilterDropdown = ({ isOpen, onClose, position, filterType, options }: FilterDropdownProps) => {
+const FilterDropdown = ({
+  isOpen,
+  onClose,
+  position,
+  filterType,
+  options,
+}: FilterDropdownProps) => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [searchText, setSearchText] = useState("");
 
   const filterOptions = options;
-  
+
   // 根据筛选类型设置placeholder
   const getPlaceholder = () => {
     if (filterType === "type") return "搜索类型";
@@ -42,7 +48,7 @@ const FilterDropdown = ({ isOpen, onClose, position, filterType, options }: Filt
 
       {/* Dropdown */}
       <div
-        className="fixed z-50 w-[216px] bg-[#00000066] rounded-[12px] p-[8px] flex flex-col gap-[6px] backdrop-blur-[10px]"
+        className="fixed z-50 w-[216px] bg-[#00000066] rounded-[12px] p-[8px] flex flex-col gap-[6px] backdrop-blur-[14px]"
         style={{
           top: `${position.top}px`,
           left: `${position.left}px`,

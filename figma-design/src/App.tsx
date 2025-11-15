@@ -30,7 +30,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white p-8 flex justify-center items-center">
+    <div className="min-h-screen bg-black p-8 flex justify-center items-center">
       <div className="w-[736px] h-[407px] bg-[#101010] flex">
         <div className="w-[80px] h-[407px] bg-[#00000099] "></div>
         <div className="flex-1 h-full bg-[#101010] py-[21px] px-[24px] flex flex-col gap-[16px]">
